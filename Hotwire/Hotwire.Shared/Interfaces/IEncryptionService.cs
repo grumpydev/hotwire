@@ -1,0 +1,15 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Runtime.Serialization;
+using Microsoft.Practices.ServiceLocation;
+
+namespace Hotwire.Shared.Interfaces
+{
+    public interface IEncryptionService
+    {
+        string Encrypt(string plainText);
+        string Decrypt(string encText);
+    }
+}

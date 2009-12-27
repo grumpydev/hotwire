@@ -1,0 +1,396 @@
+﻿<sjr:CustomWindow
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Hotwire.Launch"
+    xmlns:sjr="clr-namespace:SJR.Controls;assembly=SJR.Controls"
+    xmlns:Microsoft_Windows_Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" x:Class="Hotwire.Launch.Views.ConfigurationView"
+    Title="Hotwire Configuration" Topmost="True" ResizeMode="NoResize" Style="{DynamicResource MainWindowStyle}"  Width="400" Height="400" FontFamily="Century Gothic" Foreground="White"  mc:Ignorable="d"  >
+	<sjr:CustomWindow.Resources>
+		<Style x:Key="MainWindowStyle" TargetType="{x:Type sjr:CustomWindow}">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type sjr:CustomWindow}">
+						<ControlTemplate.Resources>
+							<Style x:Key="{x:Type Button}" TargetType="{x:Type Button}">
+								<Setter Property="FlowDirection" Value="LeftToRight"/>
+							</Style>
+						</ControlTemplate.Resources>
+						<AdornerDecorator>
+							<Border x:Name="PART_Border" Focusable="False" BorderBrush="#FF0C0B0B" BorderThickness="1" Background="#FF343131">
+								<Grid Focusable="False">
+									<Grid.RowDefinitions>
+										<RowDefinition Height="Auto"/>
+										<RowDefinition/>
+									</Grid.RowDefinitions>
+									<Grid x:Name="PART_Drag" Focusable="False">
+										<Grid.Background>
+											<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" MappingMode="RelativeToBoundingBox">
+												<GradientStop Color="#FF1C1C1C" Offset="1"/>
+												<GradientStop Color="#FF615B5B"/>
+											</LinearGradientBrush>
+										</Grid.Background>
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition/>
+											<ColumnDefinition Width="Auto"/>
+										</Grid.ColumnDefinitions>
+										<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" IsHitTestVisible="False" Foreground="White" Text="{Binding Title, RelativeSource={RelativeSource TemplatedParent}}" Visibility="Hidden"/>
+                                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" >
+                                            <Image Source="hotwire-tiny.png" Stretch="None" />
+                                            <TextBlock Foreground="White"  Margin="2,1,0,0" >Configuration</TextBlock>
+                                        </StackPanel>
+                                        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="1" Orientation="Horizontal">
+											<Button x:Name="PART_CloseButton" Content="Close">
+												<Button.Style>
+													<Style TargetType="{x:Type Button}">
+														<Setter Property="FocusVisualStyle">
+															<Setter.Value>
+																<Style>
+																	<Setter Property="Control.Template">
+																		<Setter.Value>
+																			<ControlTemplate>
+																				<Rectangle Stroke="Black" StrokeDashArray="1 2" StrokeThickness="1" Margin="2" SnapsToDevicePixels="True"/>
+																			</ControlTemplate>
+																		</Setter.Value>
+																	</Setter>
+																</Style>
+															</Setter.Value>
+														</Setter>
+														<Setter Property="Background">
+															<Setter.Value>
+																<LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+																	<GradientStop Color="#FFF3F3F3" Offset="0"/>
+																	<GradientStop Color="#FFEBEBEB" Offset="0.5"/>
+																	<GradientStop Color="#FFDDDDDD" Offset="0.5"/>
+																	<GradientStop Color="#FFCDCDCD" Offset="1"/>
+																</LinearGradientBrush>
+															</Setter.Value>
+														</Setter>
+														<Setter Property="BorderBrush" Value="#FF707070"/>
+														<Setter Property="BorderThickness" Value="1"/>
+														<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+														<Setter Property="HorizontalContentAlignment" Value="Center"/>
+														<Setter Property="VerticalContentAlignment" Value="Center"/>
+														<Setter Property="Padding" Value="1"/>
+														<Setter Property="Template">
+															<Setter.Value>
+																<ControlTemplate TargetType="{x:Type Button}">
+																	<Grid Margin="2" ToolTip="{TemplateBinding Content}" Width="16" Height="16" Background="{x:Null}">
+																		<Rectangle Fill="#FF2A2A2A" Stroke="Black" Margin="0,0.125,0,-0.125"/>
+																		<Path Fill="{x:Null}" Stretch="Fill" Stroke="#FF676363" HorizontalAlignment="Stretch" Margin="2.167,2,2.083,1.958" Width="Auto" Data="M2.1666667,14.041667L13.916667,2"/>
+																		<Path Fill="{x:Null}" Stretch="Fill" Stroke="#FF676363" HorizontalAlignment="Stretch" Margin="2.167,2,2.083,1.958" Width="Auto" RenderTransformOrigin="0.5,0.5" Data="M2.1666667,14.041667L13.916667,2">
+																			<Path.RenderTransform>
+																				<TransformGroup>
+																					<ScaleTransform/>
+																					<SkewTransform/>
+																					<RotateTransform Angle="90"/>
+																					<TranslateTransform/>
+																				</TransformGroup>
+																			</Path.RenderTransform>
+																		</Path>
+																	</Grid>
+																	<ControlTemplate.Triggers>
+																		<Trigger Property="IsKeyboardFocused" Value="True"/>
+																		<Trigger Property="ToggleButton.IsChecked" Value="True"/>
+																		<Trigger Property="IsEnabled" Value="False">
+																			<Setter Property="Foreground" Value="#FFADADAD"/>
+																		</Trigger>
+																	</ControlTemplate.Triggers>
+																</ControlTemplate>
+															</Setter.Value>
+														</Setter>
+													</Style>
+												</Button.Style>
+											</Button>
+										</StackPanel>
+									</Grid>
+									<ContentPresenter Margin="2,0,2,2" Grid.Row="1" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" ContentTemplate="{TemplateBinding ContentTemplate}" ClipToBounds="True"/>
+									<Rectangle x:Name="PART_TopResizer" Fill="Transparent" Cursor="SizeNS" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="2" Grid.Row="0"/>
+									<Rectangle x:Name="PART_BottomResizer" Fill="Transparent" Cursor="SizeNS" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Height="2" Grid.Row="1"/>
+									<Rectangle x:Name="PART_LeftResizer" Fill="Transparent" Cursor="SizeWE" HorizontalAlignment="Left" VerticalAlignment="Stretch" Width="2" Grid.Row="0" Grid.RowSpan="2"/>
+									<Rectangle x:Name="PART_RightResizer" Fill="Transparent" Cursor="SizeWE" HorizontalAlignment="Right" VerticalAlignment="Stretch" Width="2" Grid.Row="0" Grid.RowSpan="2"/>
+									<Rectangle x:Name="PART_TopLeftResizer" Fill="Transparent" Cursor="SizeNWSE" HorizontalAlignment="Left" VerticalAlignment="Top" Width="4" Height="4" Grid.Row="0"/>
+									<Rectangle x:Name="PART_TopRightResizer" Fill="Transparent" Cursor="SizeNESW" HorizontalAlignment="Right" VerticalAlignment="Top" Width="4" Height="4" Grid.Row="0"/>
+									<Rectangle x:Name="PART_BottomLeftResizer" Fill="Transparent" Cursor="SizeNESW" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="4" Height="4" Grid.Row="1"/>
+									<Rectangle x:Name="PART_BottomRightResizer" Fill="Transparent" Cursor="SizeNWSE" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="4" Height="4" Grid.Row="1"/>
+								</Grid>
+							</Border>
+						</AdornerDecorator>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<LinearGradientBrush x:Key="TextBoxBorder" EndPoint="0,20" StartPoint="0,0" MappingMode="Absolute">
+			<GradientStop Color="#ABADB3" Offset="0.05"/>
+			<GradientStop Color="#E2E3EA" Offset="0.07"/>
+			<GradientStop Color="#E3E9EF" Offset="1"/>
+		</LinearGradientBrush>
+		<Style x:Key="ConfigurationTextBoxStyle" BasedOn="{x:Null}" TargetType="{x:Type TextBox}">
+			<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+			<Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+			<Setter Property="BorderBrush" Value="{StaticResource TextBoxBorder}"/>
+			<Setter Property="BorderThickness" Value="1"/>
+			<Setter Property="Padding" Value="1"/>
+			<Setter Property="AllowDrop" Value="true"/>
+			<Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type TextBox}">
+						<Microsoft_Windows_Themes:ListBoxChrome x:Name="Bd" SnapsToDevicePixels="true" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" RenderFocused="{TemplateBinding IsKeyboardFocusWithin}" RenderMouseOver="{TemplateBinding IsMouseOver}" Margin="0,2,0,8">
+							<ScrollViewer x:Name="PART_ContentHost" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+						</Microsoft_Windows_Themes:ListBoxChrome>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsEnabled" Value="false">
+								<Setter Property="Background" TargetName="Bd" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+								<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+							</Trigger>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<Style x:Key="ConfigurationPasswordStyle" TargetType="{x:Type PasswordBox}">
+			<Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+			<Setter Property="BorderBrush" Value="{StaticResource TextBoxBorder}"/>
+			<Setter Property="FontFamily" Value="Times New Roman"/>
+			<Setter Property="PasswordChar" Value="●"/>
+			<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+			<Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+			<Setter Property="BorderThickness" Value="1"/>
+			<Setter Property="HorizontalContentAlignment" Value="Left"/>
+			<Setter Property="Padding" Value="1"/>
+			<Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+			<Setter Property="AllowDrop" Value="true"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type PasswordBox}">
+						<Microsoft_Windows_Themes:ListBoxChrome x:Name="Bd" SnapsToDevicePixels="true" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" RenderFocused="{TemplateBinding IsKeyboardFocusWithin}" RenderMouseOver="{TemplateBinding IsMouseOver}" Margin="0,2,0,8">
+							<ScrollViewer x:Name="PART_ContentHost" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+						</Microsoft_Windows_Themes:ListBoxChrome>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsEnabled" Value="false">
+								<Setter Property="Background" TargetName="Bd" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+								<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+							</Trigger>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<SolidColorBrush x:Key="ListBorder" Color="#828790"/>
+		<Style x:Key="ConfigurationListBoxStyle" TargetType="{x:Type ListBox}">
+			<Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+			<Setter Property="BorderBrush" Value="{StaticResource ListBorder}"/>
+			<Setter Property="BorderThickness" Value="1"/>
+			<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+			<Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
+			<Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+			<Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
+			<Setter Property="VerticalContentAlignment" Value="Center"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type ListBox}">
+						<Border x:Name="Bd" SnapsToDevicePixels="true" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Padding="1" Margin="2" CornerRadius="2">
+							<ScrollViewer Padding="{TemplateBinding Padding}" Focusable="false">
+								<ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+							</ScrollViewer>
+						</Border>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsEnabled" Value="false">
+								<Setter Property="Background" TargetName="Bd" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+							</Trigger>
+							<Trigger Property="IsGrouping" Value="true">
+								<Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+							</Trigger>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<Style x:Key="ButtonFocusVisual">
+			<Setter Property="Control.Template">
+				<Setter.Value>
+					<ControlTemplate>
+						<Rectangle Stroke="Black" StrokeDashArray="1 2" StrokeThickness="1" Margin="2" SnapsToDevicePixels="true"/>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<LinearGradientBrush x:Key="ButtonNormalBackground" EndPoint="0,1" StartPoint="0,0">
+			<GradientStop Color="#F3F3F3" Offset="0"/>
+			<GradientStop Color="#EBEBEB" Offset="0.5"/>
+			<GradientStop Color="#DDDDDD" Offset="0.5"/>
+			<GradientStop Color="#CDCDCD" Offset="1"/>
+		</LinearGradientBrush>
+		<SolidColorBrush x:Key="ButtonNormalBorder" Color="#FF707070"/>
+		<Style x:Key="ConfigurationButtonStyle" TargetType="{x:Type Button}">
+			<Setter Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual}"/>
+			<Setter Property="Background" Value="{StaticResource ButtonNormalBackground}"/>
+			<Setter Property="BorderBrush" Value="{StaticResource ButtonNormalBorder}"/>
+			<Setter Property="BorderThickness" Value="1"/>
+			<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+			<Setter Property="HorizontalContentAlignment" Value="Center"/>
+			<Setter Property="VerticalContentAlignment" Value="Center"/>
+			<Setter Property="Padding" Value="1"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Button}">
+						<ControlTemplate.Resources>
+							<Storyboard x:Key="ConfigurationButtonMouseIn">
+								<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="contentPresenter" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+									<SplineDoubleKeyFrame KeyTime="00:00:00.2000000" Value="1.25" KeySpline="0.5,0,0.5,1"/>
+								</DoubleAnimationUsingKeyFrames>
+								<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="contentPresenter" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+									<SplineDoubleKeyFrame KeyTime="00:00:00.2000000" Value="1.25" KeySpline="0.5,0,0.5,1"/>
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+							<Storyboard x:Key="ConfigurationButtonMouseOut">
+								<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="contentPresenter" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+									<SplineDoubleKeyFrame KeyTime="00:00:00.2000000" Value="1" KeySpline="0.5,0,0.5,1"/>
+								</DoubleAnimationUsingKeyFrames>
+								<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="contentPresenter" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+									<SplineDoubleKeyFrame KeyTime="00:00:00.2000000" Value="1" KeySpline="0.5,0,0.5,1"/>
+								</DoubleAnimationUsingKeyFrames>
+							</Storyboard>
+						</ControlTemplate.Resources>
+						<Grid Width="100" Margin="2">
+							<Border x:Name="border" BorderBrush="Black" BorderThickness="1">
+								<Border.Background>
+									<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+										<GradientStop Color="#FFD5D3D3"/>
+										<GradientStop Color="#FF393838" Offset="0.871"/>
+									</LinearGradientBrush>
+								</Border.Background>
+							</Border>
+							<ContentPresenter x:Name="contentPresenter" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" RecognizesAccessKey="True" RenderTransformOrigin="0.5,0.5">
+								<ContentPresenter.RenderTransform>
+									<TransformGroup>
+										<ScaleTransform/>
+										<SkewTransform/>
+										<RotateTransform/>
+										<TranslateTransform/>
+									</TransformGroup>
+								</ContentPresenter.RenderTransform>
+							</ContentPresenter>
+						</Grid>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsMouseOver" Value="True">
+								<Trigger.ExitActions>
+									<BeginStoryboard x:Name="ConfigurationButtonMouseOut_BeginStoryboard" Storyboard="{StaticResource ConfigurationButtonMouseOut}"/>
+								</Trigger.ExitActions>
+								<Trigger.EnterActions>
+									<BeginStoryboard x:Name="ConfigurationButtonMouseIn_BeginStoryboard" Storyboard="{StaticResource ConfigurationButtonMouseIn}"/>
+								</Trigger.EnterActions>
+							</Trigger>
+							<Trigger Property="IsKeyboardFocused" Value="true"/>
+							<Trigger Property="ToggleButton.IsChecked" Value="true"/>
+							<Trigger Property="IsEnabled" Value="false">
+								<Setter Property="Foreground" Value="#ADADAD"/>
+							</Trigger>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<DataTemplate x:Key="ConfigurationItemTemplate">
+			<Grid>
+				<TextBlock Text="{Binding}" TextWrapping="Wrap" d:LayoutOverrides="Width, Height" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+			</Grid>
+		</DataTemplate>
+		<Style x:Key="ConfigurationContainerStyle" TargetType="{x:Type ListBoxItem}">
+			<Setter Property="Background" Value="Transparent"/>
+			<Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+			<Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+			<Setter Property="Padding" Value="2,0,0,0"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type ListBoxItem}">
+						<Border x:Name="Bd" SnapsToDevicePixels="true" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}" Background="Transparent">
+							<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+						</Border>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsSelected" Value="true">
+								<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}"/>
+								<Setter Property="Background" TargetName="Bd" Value="#FF616161"/>
+							</Trigger>
+							<MultiTrigger>
+								<MultiTrigger.Conditions>
+									<Condition Property="IsSelected" Value="true"/>
+									<Condition Property="Selector.IsSelectionActive" Value="false"/>
+								</MultiTrigger.Conditions>
+								<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+								<Setter Property="Background" TargetName="Bd" Value="#FF616161"/>
+							</MultiTrigger>
+							<Trigger Property="IsEnabled" Value="false">
+								<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+							</Trigger>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+	</sjr:CustomWindow.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="32"/>
+        </Grid.RowDefinitions>
+        
+        <Grid>
+            <Grid.ColumnDefinitions>
+            	<ColumnDefinition Width="50*"/>
+            	<ColumnDefinition Width="50*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                	<RowDefinition Height="70*"/>
+                	<RowDefinition Height="30*"/>
+                </Grid.RowDefinitions>
+
+                <ListBox x:Name="MachinesList" ItemsSource="{Binding Machines}" SelectedItem="{Binding SelectedMachine}" Style="{DynamicResource ConfigurationListBoxStyle}" Background="#FF343131" BorderBrush="Black" ItemTemplate="{DynamicResource ConfigurationItemTemplate}" ItemContainerStyle="{DynamicResource ConfigurationContainerStyle}"/>
+                <Grid x:Name="DropCanvas" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" AllowDrop="True" Background="#FF221F1F" Grid.Row="1"  Margin="0,0,2,2">
+                	<Rectangle Fill="#00000000" Stroke="Black" RadiusX="2" RadiusY="2"/>
+                	<Canvas x:Name="Target" Width="153.062" Height="153.061">
+                		<Canvas.LayoutTransform>
+                			<TransformGroup>
+                				<ScaleTransform ScaleX="0.5" ScaleY="0.5"/>
+                				<SkewTransform/>
+                				<RotateTransform/>
+                				<TranslateTransform/>
+                			</TransformGroup>
+                		</Canvas.LayoutTransform>
+                		<Path Stretch="Fill" Stroke="Black" StrokeEndLineCap="Flat" StrokeLineJoin="Miter" StrokeMiterLimit="4" StrokeStartLineCap="Flat" StrokeThickness="1" Width="154.062" Height="154.061" Data="M229.2856,277.8979C186.9846,277.8979,152.7546,243.6689,152.7546,201.3669C152.7546,159.0659,186.9846,124.8369,229.2856,124.8369C271.5866,124.8369,305.8166,159.0659,305.8166,201.3669C305.8166,243.6689,271.5866,277.8979,229.2856,277.8979z" Canvas.Left="-0.5" Canvas.Top="-0.5"/>
+                		<Path Stretch="Fill" Stroke="Black" StrokeEndLineCap="Flat" StrokeLineJoin="Miter" StrokeMiterLimit="4" StrokeStartLineCap="Flat" StrokeThickness="1" Width="128.576" Height="128.501" Data="M293.0737,201.3672C293.0737,166.0922,264.5247,137.6172,229.2857,137.6172C194.0467,137.6172,165.4977,166.0922,165.4977,201.3672C165.4977,236.6432,194.0467,265.1182,229.2857,265.1182C264.5247,265.1182,293.0737,236.6432,293.0737,201.3672z" Canvas.Left="12.243" Canvas.Top="12.28"/>
+                		<Path Stretch="Fill" Stroke="Black" StrokeEndLineCap="Flat" StrokeLineJoin="Miter" StrokeMiterLimit="4" StrokeStartLineCap="Flat" StrokeThickness="1" Width="103.016" Height="103.09" Data="M229.2856,252.4126C201.0726,252.4126,178.2776,229.5426,178.2776,201.3676C178.2776,173.1916,201.0726,150.3226,229.2856,150.3226C257.4986,150.3226,280.2936,173.1916,280.2936,201.3676C280.2936,229.5426,257.4986,252.4126,229.2856,252.4126z" Canvas.Left="25.023" Canvas.Top="24.986"/>
+                		<Path Stretch="Fill" Stroke="Black" StrokeEndLineCap="Flat" StrokeLineJoin="Miter" StrokeMiterLimit="4" StrokeStartLineCap="Flat" StrokeThickness="1" Width="77.53" Height="77.531" Data="M267.5508,201.3672C267.5508,180.2172,250.4358,163.1022,229.2858,163.1022C208.1348,163.1022,191.0208,180.2172,191.0208,201.3672C191.0208,222.5182,208.1348,239.6332,229.2858,239.6332C250.4358,239.6332,267.5508,222.5182,267.5508,201.3672z" Canvas.Left="37.766" Canvas.Top="37.765"/>
+                		<Path Stretch="Fill" Stroke="Black" StrokeEndLineCap="Flat" StrokeLineJoin="Miter" StrokeMiterLimit="4" StrokeStartLineCap="Flat" StrokeThickness="1" Width="52.046" Height="51.97" Data="M229.2856,226.8525C215.1976,226.8525,203.7626,215.4925,203.7626,201.3675C203.7626,187.2425,215.1976,175.8825,229.2856,175.8825C243.3736,175.8825,254.8086,187.2425,254.8086,201.3675C254.8086,215.4925,243.3736,226.8525,229.2856,226.8525z" Canvas.Left="50.508" Canvas.Top="50.546"/>
+                		<Path Stretch="Fill" Stroke="Black" StrokeEndLineCap="Flat" StrokeLineJoin="Miter" StrokeMiterLimit="4" StrokeStartLineCap="Flat" StrokeThickness="1" Width="26.485" Height="26.56" Data="M242.0283,201.3672C242.0283,194.3422,236.3483,188.5872,229.2853,188.5872C222.2233,188.5872,216.5433,194.3422,216.5433,201.3672C216.5433,208.3922,222.2233,214.1472,229.2853,214.1472C236.3483,214.1472,242.0283,208.3922,242.0283,201.3672z" Canvas.Left="63.289" Canvas.Top="63.25"/>
+                		<Path Stretch="Fill" Stroke="Black" StrokeEndLineCap="Flat" StrokeLineJoin="Miter" StrokeMiterLimit="4" StrokeStartLineCap="Flat" StrokeThickness="1" Width="77.531" Height="1" Data="M229.2856,201.3672L152.7546,201.3672" Canvas.Left="-0.5" Canvas.Top="76.03"/>
+                		<Path Stretch="Fill" Stroke="Black" StrokeEndLineCap="Flat" StrokeLineJoin="Miter" StrokeMiterLimit="4" StrokeStartLineCap="Flat" StrokeThickness="1" Width="1" Height="77.53" Data="M229.2856,201.3672L229.2856,124.8372" Canvas.Left="76.031" Canvas.Top="-0.5"/>
+                		<Path Stretch="Fill" Stroke="Black" StrokeEndLineCap="Flat" StrokeLineJoin="Miter" StrokeMiterLimit="4" StrokeStartLineCap="Flat" StrokeThickness="1" Width="77.531" Height="1" Data="M229.2856,201.3672L305.8166,201.3672" Canvas.Left="76.031" Canvas.Top="76.03"/>
+                		<Path Stretch="Fill" Stroke="Black" StrokeEndLineCap="Flat" StrokeLineJoin="Miter" StrokeMiterLimit="4" StrokeStartLineCap="Flat" StrokeThickness="1" Width="1" Height="77.531" Data="M229.2856,201.3672L229.2856,277.8982" Canvas.Left="76.031" Canvas.Top="76.03"/>
+                	</Canvas>
+                	<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" FontSize="10.667"><Run Text="To Add a Machine"/><LineBreak/><Run Text="Drop a &quot;Desktop Shortcut&quot;"/><Run Text=" "/><Run Text="Here from"/><LineBreak/><Run Text="Computer Properties"/><LineBreak/><Run Text=""/></TextBlock>
+                </Grid>
+            </Grid>
+
+            <StackPanel Grid.Column="1" DataContext="{Binding SelectedMachine}" Margin="4">
+                <TextBlock><Run Text="Name:"/></TextBlock>
+                <TextBox Text="{Binding MachineName}" Style="{DynamicResource ConfigurationTextBoxStyle}"/>
+                <TextBlock><Run Text="Url:"/></TextBlock>
+                <TextBox Text="{Binding Url}" Style="{DynamicResource ConfigurationTextBoxStyle}"/>
+                <TextBlock><Run Text="Username:"/></TextBlock>
+                <TextBox Text="{Binding Username}" Style="{DynamicResource ConfigurationTextBoxStyle}"/>
+                <TextBlock><Run Text="Password:"/></TextBlock>
+                <PasswordBox local:PasswordBoxAssistant.BindPassword="true" local:PasswordBoxAssistant.BoundPassword="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource ConfigurationPasswordStyle}"/>
+                <Button Command="{Binding DataContext.DeleteCommand, ElementName=MachinesList}" CommandParameter="{Binding}" Content="Delete" Style="{DynamicResource ConfigurationButtonStyle}" Margin="0,0,0,-27.7" HorizontalAlignment="Right"/>
+            </StackPanel>
+        </Grid>
+        
+        <!-- Buttons -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="1">
+            <Button Command="{Binding SaveCommand}" Content="Save" Style="{DynamicResource ConfigurationButtonStyle}" Margin="0,0,8,0"/>
+            <Button Command="{Binding CancelCommand}" Content="Cancel" Margin="8,0,0,0" Style="{DynamicResource ConfigurationButtonStyle}"/>
+        </StackPanel>
+    </Grid>
+</sjr:CustomWindow>
