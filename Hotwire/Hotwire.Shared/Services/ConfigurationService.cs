@@ -27,6 +27,9 @@ namespace Hotwire.Shared.Services
 
         public IEnumerable<Machine> LoadConfiguration()
         {
+            if (!File.Exists(configurationFileName))
+                return new List<Machine>();
+
             List<Machine> machines = new List<Machine>();
 
             using (FileStream fs = new FileStream(configurationFileName, FileMode.Open))
