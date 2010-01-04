@@ -375,6 +375,15 @@
             </Grid>
 
             <StackPanel Grid.Column="1" DataContext="{Binding SelectedMachine}" Margin="4">
+                <StackPanel.Style>
+                    <Style TargetType="{x:Type StackPanel}">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding}" Value="{x:Null}">
+                                <Setter Property="IsEnabled" Value="False"/>
+                            </DataTrigger>
+                        </Style.Triggers> 
+                    </Style>
+                </StackPanel.Style>
                 <TextBlock><Run Text="Name:"/></TextBlock>
                 <TextBox Text="{Binding MachineName}" Style="{DynamicResource ConfigurationTextBoxStyle}"/>
                 <TextBlock><Run Text="Url:"/></TextBlock>

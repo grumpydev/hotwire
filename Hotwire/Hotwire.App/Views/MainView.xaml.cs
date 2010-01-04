@@ -55,7 +55,7 @@ namespace Hotwire.App.Views
         void MainView_Loaded(object sender, RoutedEventArgs e)
         {
             MainBrowser.LoadCompleted += MainBrowser_LoadCompleted;
-            _timeoutTimer = new System.Threading.Timer(Timeout, null, 30 * 1000, System.Threading.Timeout.Infinite);
+            _timeoutTimer = new System.Threading.Timer(Timeout, null, 45 * 1000, System.Threading.Timeout.Infinite);
             ProcessStage();
         }
 
@@ -86,14 +86,30 @@ namespace Hotwire.App.Views
                     {
                         var currentDocument = (mshtml.HTMLDocument)MainBrowser.Document;
 
-                        currentDocument.getElementById("usr").setAttribute("value", _viewModel.CurrentMachine.Username, 0);
-                        currentDocument.getElementById("pwd").setAttribute("value", _viewModel.CurrentMachine.Password, 0);
+                        // Set username
+                        try
+                        {
+                            currentDocument.getElementById("usr").setAttribute("value", _viewModel.CurrentMachine.Username, 0);
+                        }
+                        catch (Exception)
+                        {
+                            // Swallow any errors from the HTML document
+                        }
+
+                        // Set password
+                        try
+                        {
+                            currentDocument.getElementById("pwd").setAttribute("value", _viewModel.CurrentMachine.Password, 0);
+                        }
+                        catch (Exception ex)
+                        {
+                            // Swallow any errors from the HTML document
+                        }
 
                         if (!String.IsNullOrEmpty(_viewModel.CurrentMachine.Password))
                         {
                             currentDocument.getElementById("loginButton").click();
                         }
-
                         _currentStage = CurrentStage.RemoteControl;
                     }
                     catch (Exception ex)
