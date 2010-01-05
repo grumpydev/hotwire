@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Hotwire.Launch.ViewModels;
 using SJR.Controls;
+using System.Diagnostics;
 
 namespace Hotwire.Launch.Views
 {
@@ -46,6 +47,12 @@ namespace Hotwire.Launch.Views
         {
             this.DialogResult = result;
             this.Close();
+        }
+
+        private void Hyperlink_RequestNavigate(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo(e.Uri.ToString()));
+            e.Handled = true;
         }
     }
 }
