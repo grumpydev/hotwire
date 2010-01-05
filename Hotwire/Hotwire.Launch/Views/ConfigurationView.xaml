@@ -359,17 +359,37 @@
                 				<TranslateTransform/>
                 			</TransformGroup>
                 		</Canvas.LayoutTransform>
-                		<Path Stretch="Fill" Stroke="Black" StrokeEndLineCap="Flat" StrokeLineJoin="Miter" StrokeMiterLimit="4" StrokeStartLineCap="Flat" StrokeThickness="1" Width="154.062" Height="154.061" Data="M229.2856,277.8979C186.9846,277.8979,152.7546,243.6689,152.7546,201.3669C152.7546,159.0659,186.9846,124.8369,229.2856,124.8369C271.5866,124.8369,305.8166,159.0659,305.8166,201.3669C305.8166,243.6689,271.5866,277.8979,229.2856,277.8979z" Canvas.Left="-0.5" Canvas.Top="-0.5"/>
-                		<Path Stretch="Fill" Stroke="Black" StrokeEndLineCap="Flat" StrokeLineJoin="Miter" StrokeMiterLimit="4" StrokeStartLineCap="Flat" StrokeThickness="1" Width="128.576" Height="128.501" Data="M293.0737,201.3672C293.0737,166.0922,264.5247,137.6172,229.2857,137.6172C194.0467,137.6172,165.4977,166.0922,165.4977,201.3672C165.4977,236.6432,194.0467,265.1182,229.2857,265.1182C264.5247,265.1182,293.0737,236.6432,293.0737,201.3672z" Canvas.Left="12.243" Canvas.Top="12.28"/>
-                		<Path Stretch="Fill" Stroke="Black" StrokeEndLineCap="Flat" StrokeLineJoin="Miter" StrokeMiterLimit="4" StrokeStartLineCap="Flat" StrokeThickness="1" Width="103.016" Height="103.09" Data="M229.2856,252.4126C201.0726,252.4126,178.2776,229.5426,178.2776,201.3676C178.2776,173.1916,201.0726,150.3226,229.2856,150.3226C257.4986,150.3226,280.2936,173.1916,280.2936,201.3676C280.2936,229.5426,257.4986,252.4126,229.2856,252.4126z" Canvas.Left="25.023" Canvas.Top="24.986"/>
-                		<Path Stretch="Fill" Stroke="Black" StrokeEndLineCap="Flat" StrokeLineJoin="Miter" StrokeMiterLimit="4" StrokeStartLineCap="Flat" StrokeThickness="1" Width="77.53" Height="77.531" Data="M267.5508,201.3672C267.5508,180.2172,250.4358,163.1022,229.2858,163.1022C208.1348,163.1022,191.0208,180.2172,191.0208,201.3672C191.0208,222.5182,208.1348,239.6332,229.2858,239.6332C250.4358,239.6332,267.5508,222.5182,267.5508,201.3672z" Canvas.Left="37.766" Canvas.Top="37.765"/>
-                		<Path Stretch="Fill" Stroke="Black" StrokeEndLineCap="Flat" StrokeLineJoin="Miter" StrokeMiterLimit="4" StrokeStartLineCap="Flat" StrokeThickness="1" Width="52.046" Height="51.97" Data="M229.2856,226.8525C215.1976,226.8525,203.7626,215.4925,203.7626,201.3675C203.7626,187.2425,215.1976,175.8825,229.2856,175.8825C243.3736,175.8825,254.8086,187.2425,254.8086,201.3675C254.8086,215.4925,243.3736,226.8525,229.2856,226.8525z" Canvas.Left="50.508" Canvas.Top="50.546"/>
-                		<Path Stretch="Fill" Stroke="Black" StrokeEndLineCap="Flat" StrokeLineJoin="Miter" StrokeMiterLimit="4" StrokeStartLineCap="Flat" StrokeThickness="1" Width="26.485" Height="26.56" Data="M242.0283,201.3672C242.0283,194.3422,236.3483,188.5872,229.2853,188.5872C222.2233,188.5872,216.5433,194.3422,216.5433,201.3672C216.5433,208.3922,222.2233,214.1472,229.2853,214.1472C236.3483,214.1472,242.0283,208.3922,242.0283,201.3672z" Canvas.Left="63.289" Canvas.Top="63.25"/>
-                		<Path Stretch="Fill" Stroke="Black" StrokeEndLineCap="Flat" StrokeLineJoin="Miter" StrokeMiterLimit="4" StrokeStartLineCap="Flat" StrokeThickness="1" Width="77.531" Height="1" Data="M229.2856,201.3672L152.7546,201.3672" Canvas.Left="-0.5" Canvas.Top="76.03"/>
-                		<Path Stretch="Fill" Stroke="Black" StrokeEndLineCap="Flat" StrokeLineJoin="Miter" StrokeMiterLimit="4" StrokeStartLineCap="Flat" StrokeThickness="1" Width="1" Height="77.53" Data="M229.2856,201.3672L229.2856,124.8372" Canvas.Left="76.031" Canvas.Top="-0.5"/>
-                		<Path Stretch="Fill" Stroke="Black" StrokeEndLineCap="Flat" StrokeLineJoin="Miter" StrokeMiterLimit="4" StrokeStartLineCap="Flat" StrokeThickness="1" Width="77.531" Height="1" Data="M229.2856,201.3672L305.8166,201.3672" Canvas.Left="76.031" Canvas.Top="76.03"/>
-                		<Path Stretch="Fill" Stroke="Black" StrokeEndLineCap="Flat" StrokeLineJoin="Miter" StrokeMiterLimit="4" StrokeStartLineCap="Flat" StrokeThickness="1" Width="1" Height="77.531" Data="M229.2856,201.3672L229.2856,277.8982" Canvas.Left="76.031" Canvas.Top="76.03"/>
-                	</Canvas>
+                        <Path x:Name="TargetPath" Stretch="Fill" StrokeEndLineCap="Flat" StrokeLineJoin="Miter" StrokeMiterLimit="4" StrokeStartLineCap="Flat" StrokeThickness="1" Width="154.062" Height="154.061" Data="M77.031002,153.56101 C34.730001,153.56101 0.50000001,119.33201 0.50000001,77.030005 0.50000001,34.729002 34.730001,0.5 77.031002,0.5 119.332,0.5 153.562,34.729002 153.562,77.030005 153.562,119.33201 119.332,153.56101 77.031002,153.56101 z M140.81899,77.03 C140.81899,41.754998 112.26999,13.279996 77.030995,13.279996 41.791996,13.279996 13.242997,41.754998 13.242997,77.03 13.242997,112.306 41.791996,140.781 77.030995,140.781 112.26999,140.781 140.81899,112.306 140.81899,77.03 z M77.030987,128.076 C48.817988,128.076 26.02299,105.206 26.02299,77.030999 26.02299,48.854998 48.817988,25.985997 77.030987,25.985997 105.24398,25.985997 128.03898,48.854998 128.03898,77.030999 128.03898,105.206 105.24398,128.076 77.030987,128.076 z M115.29598,77.03 C115.29598,55.879998 98.180984,38.764995 77.030988,38.764995 55.879992,38.764995 38.765995,55.879998 38.765995,77.03 38.765995,98.181003 55.879992,115.296 77.030988,115.296 98.180984,115.296 115.29598,98.181003 115.29598,77.03 z M77.030994,102.51601 C62.942991,102.51601 51.507989,91.156002 51.507989,77.030999 51.507989,62.905995 62.942991,51.545991 77.030994,51.545991 91.118997,51.545991 102.554,62.905995 102.554,77.030999 102.554,91.156002 91.118997,102.51601 77.030994,102.51601 z M89.773988,77.029996 C89.773988,70.004995 84.093988,64.249995 77.030988,64.249995 69.968988,64.249995 64.288988,70.004995 64.288988,77.029996 64.288988,84.054997 69.968988,89.809997 77.030988,89.809997 84.093988,89.809997 89.773988,84.054997 89.773988,77.029996 z M77.030994,77.029996 L0.50000001,77.029996 M77.030994,77.029996 L77.030994,0.50000246 M77.030994,77.029996 L153.562,77.029996 M77.030994,77.029996 L77.030994,153.56101" Canvas.Left="-0.5" Canvas.Top="-0.5">
+                            <Path.Stroke>
+                                <SolidColorBrush x:Name="TargetPathStrokeBrush" Color="Black"/>
+                            </Path.Stroke>
+                            <Path.Style>
+                                <Style TargetType="{x:Type Path}">
+                                    <Style.Resources>
+                                        <Storyboard x:Key="FadeAnimation" AccelerationRatio="0.5" DecelerationRatio="0.25" AutoReverse="True" RepeatBehavior="Forever">
+                                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="Stroke.Color" >
+                                                <SplineColorKeyFrame KeyTime="0:0:1" Value="Red"/>
+                                            </ColorAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity">
+                                                <SplineDoubleKeyFrame KeyTime="0" Value="0"/>
+                                                <SplineDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </Style.Resources>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Machines.Count}" Value="0">
+                                            <DataTrigger.EnterActions>
+                                                <BeginStoryboard x:Name="StartFade" Storyboard="{StaticResource FadeAnimation}"/>
+                                            </DataTrigger.EnterActions>
+                                            <DataTrigger.ExitActions>
+                                                <StopStoryboard BeginStoryboardName="StartFade"/>
+                                            </DataTrigger.ExitActions>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Path.Style>
+                        </Path>
+                    </Canvas>
                 	<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" FontSize="10.667"><Run Text="To Add a Machine"/><LineBreak/><Run Text="Drop a &quot;Desktop Shortcut&quot;"/><Run Text=" "/><Run Text="Here from"/><LineBreak/><Run Text="Computer Properties"/><LineBreak/><Run Text=""/></TextBlock>
                 </Grid>
             </Grid>
@@ -380,6 +400,7 @@
                         <Style.Triggers>
                             <DataTrigger Binding="{Binding}" Value="{x:Null}">
                                 <Setter Property="IsEnabled" Value="False"/>
+                                <Setter Property="Opacity" Value="0.25"/>
                             </DataTrigger>
                         </Style.Triggers> 
                     </Style>
