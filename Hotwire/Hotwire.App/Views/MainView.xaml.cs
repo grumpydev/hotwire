@@ -86,6 +86,29 @@ namespace Hotwire.App.Views
                     {
                         var currentDocument = (mshtml.HTMLDocument)MainBrowser.Document;
 
+                        try
+                        {
+                            mshtml.HTMLSelectElementClass domainBox = (mshtml.HTMLSelectElementClass) currentDocument.getElementById("dmn");
+                            mshtml.HTMLElementCollection collection = (mshtml.HTMLElementCollection)domainBox.options;
+
+                            var enumerator = collection.GetEnumerator();
+
+                            int index = 0;
+                            while (enumerator.MoveNext())
+                            {
+                                mshtml.HTMLOptionElement option = enumerator.Current as mshtml.HTMLOptionElement;
+                                if (option != null)
+                                    if (String.Compare(option.text, _viewModel.CurrentMachine.Domain, StringComparison.OrdinalIgnoreCase) == 0)
+                                        domainBox.selectedIndex = index;
+
+                                index++;
+                            }
+                        }
+                        catch (Exception)
+                        {
+                            // Swallow any errors from the HTML document
+                        }
+
                         // Set username
                         try
                         {
@@ -108,9 +131,26 @@ namespace Hotwire.App.Views
 
                         if (!String.IsNullOrEmpty(_viewModel.CurrentMachine.Password))
                         {
-                            currentDocument.getElementById("loginButton").click();
+                            try
+                            {
+                                currentDocument.getElementById("loginButton").click();
+                                _currentStage = CurrentStage.RemoteControl;
+                            }
+                            catch (Exception ex)
+                            {
+                                // Swallow any errors from the HTML document
+                            }
+
+                            try
+                            {
+                                currentDocument.getElementById("loginid").click();
+                                _currentStage = CurrentStage.RemoteControl;
+                            }
+                            catch (Exception ex)
+                            {
+                                // Swallow any errors from the HTML document
+                            }
                         }
-                        _currentStage = CurrentStage.RemoteControl;
                     }
                     catch (Exception ex)
                     {

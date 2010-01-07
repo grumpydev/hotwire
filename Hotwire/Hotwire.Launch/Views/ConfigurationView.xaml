@@ -413,6 +413,8 @@
                 <TextBox Text="{Binding Username}" Style="{DynamicResource ConfigurationTextBoxStyle}"/>
                 <TextBlock><Run Text="Password:"/></TextBlock>
                 <PasswordBox local:PasswordBoxAssistant.BindPassword="true" local:PasswordBoxAssistant.BoundPassword="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{DynamicResource ConfigurationPasswordStyle}"/>
+                <TextBlock><Run Text="Domain (optional):"/></TextBlock>
+                <TextBox Text="{Binding Domain}" Style="{DynamicResource ConfigurationTextBoxStyle}"/>
                 <Button Command="{Binding DataContext.DeleteCommand, ElementName=MachinesList}" CommandParameter="{Binding}" Content="Delete" Style="{DynamicResource ConfigurationButtonStyle}" Margin="0,0,0,-27.7" HorizontalAlignment="Right"/>
             </StackPanel>
         </Grid>

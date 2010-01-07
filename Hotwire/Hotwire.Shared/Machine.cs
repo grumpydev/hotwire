@@ -78,6 +78,20 @@ namespace Hotwire.Shared
             }
         }
 
+        [DataMember]
+        private string EncryptedDomain { get; set; }
+        public string Domain
+        {
+            get
+            {
+                return _encryptionService.Decrypt(EncryptedDomain);
+            }
+            set
+            {
+                EncryptedDomain = _encryptionService.Encrypt(value);
+            }
+        }
+
         /// <summary>
         /// Initializes a new instance of the Machine class.
         /// </summary>
